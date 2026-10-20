@@ -30,7 +30,7 @@ class ProteinSynthesis {
         boolean start = false;
         try {
             while (!rna.isEmpty()) {
-                String codon = '' + rna.dequeue() + rna.dequeue() + rna.dequeue();
+                String codon = "" + rna.dequeue() + rna.dequeue() + rna.dequeue();
                 if (!start) {
                     if (codon.equals(START)) {
                         start = true;

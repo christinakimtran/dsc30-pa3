@@ -12,7 +12,9 @@ import java.util.NoSuchElementException;
 class ProteinSynthesis {
     private static final int CODON_LENGTH = 3;
     private static final String START = "AUG";
-
+    // Creates an RNA by replacing each occurrence of 'T' with 'U'
+    // Saves the result in a queue and returns it
+    // @throws IllegalArgumentException if the length of the input is not divisible by 3
     public CharQueue transcribeDNA(String dna) {
         if (dna.length() % CODON_LENGTH != 0) {
             throw new IllegalArgumentException();

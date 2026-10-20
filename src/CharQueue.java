@@ -19,10 +19,13 @@ public class CharQueue {
     private int front;
     private int rear;
 
+    // Creates new queue with default capacity 5.
     public CharQueue() {
         this(DEFAULT_CAPACITY);
     }
-
+    // Creates new queue with given capacity.
+    // @param capacity Integer, given capacity
+    // @throws IllegalArgumentException if capacity is out of valid range
     public CharQueue(int capacity) {
         if (capacity < 1) {
             throw new IllegalArgumentException();
@@ -32,20 +35,24 @@ public class CharQueue {
         rear = 0;
         length = 0;
     }
-
+    // Checks if the queue is empty
+    // @return true if empty, false if not
     public boolean isEmpty() {
         return length == 0;
     }
-
+    // Returns number of elements currently stored in queue.
+    // @return number of elements currently stored in queue.
     public int size() {
         return length;
     }
-
+    // CLears all elements in the queue
     public void clear() {
         front = rear;
         length = 0;
     }
-
+    // Adds a new elem to the end of the queue.
+    // Doubles capacity when adding elem to a full queue.
+    // @param elem New element to be added
     public void enqueue(char elem) {
         if (length == circularArray.length) {
             doubleCapacity();
@@ -54,14 +61,18 @@ public class CharQueue {
         rear = (rear + 1) % circularArray.length;
         length++;
     }
-
+    // Returns the element at the front of the queue.
+    // @throws NoSuchElementException if the queue is empty
+    // @return the element at the front of the queue.
     public char peek() {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
         return circularArray[front];
     }
-
+    // Returns and removes the element at the front of queue.
+    // @throws NoSuchElementException if the queue is empty
+    // @return the element at the front of queue.
     public char dequeue() {
         if (isEmpty()) {
             throw new NoSuchElementException();
